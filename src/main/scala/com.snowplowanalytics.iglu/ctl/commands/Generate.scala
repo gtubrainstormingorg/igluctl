@@ -76,12 +76,12 @@ object Generate {
 
   def redshiftToPostgresSql(sql: String): String = {
     sql
-      .replaceAll("ENCODE ZSTD", "")
-      .replaceAll("ENCODE RAW", "")
+      .replaceAll(" ENCODE ZSTD", "")
+      .replaceAll(" ENCODE RAW", "")
       .replaceAll("DISTSTYLE KEY", "")
       .replaceAll("DISTKEY \\([^)]+\\)", "")
       .replaceAll("SORTKEY \\([^)]+\\)", "")
-      .replaceAll("CHAR\\(36\\)", "UUID")  // Replace CHAR(36) with UUID
+      .replaceAll("\\sCHAR\\(36\\)", " UUID   ")  // Replace CHAR(36) with UUID
       .replaceAll("DOUBLE PRECISION", "FLOAT8")  // Replace DOUBLE PRECISION with FLOAT8
 
       .replaceAll("BYTEINT", "SMALLINT")  // Convert BYTEINT to SMALLINT
