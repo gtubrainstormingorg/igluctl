@@ -78,6 +78,7 @@ object Generate {
     sql
       .replaceAll(" ENCODE ZSTD", "")
       .replaceAll(" ENCODE RAW", "")
+      .replaceAll(" ENCODE RUNLENGTH", "")
       .replaceAll("DISTSTYLE KEY", "")
       .replaceAll("DISTKEY \\([^)]+\\)", "")
       .replaceAll("SORTKEY \\([^)]+\\)", "")
